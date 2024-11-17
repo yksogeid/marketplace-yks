@@ -6,6 +6,7 @@
   <!-- Contenedor de RestaurantesComponent con recuadro blanco centrado -->
   <div class="centered-box">
     <RestaurantesComponent />
+    <RestaurantesLogoComponent />
   </div>
 
   <FooterComponent />
@@ -15,6 +16,7 @@
 import FooterComponent from './components/Footer.vue'; // Importa correctamente el componente Footer
 import Carousel from './components/Carousel.vue'; // Importa correctamente el componente Carousel
 import HeaderComponent from './components/Header.vue';
+import RestaurantesLogoComponent from './components/LogosRestaurantesCarousel.vue';
 import RestaurantesComponent from './components/Restaurantes.vue';
 
 export default {
@@ -22,6 +24,7 @@ export default {
     FooterComponent, // Registra correctamente el componente Footer
     Carousel, // Registra correctamente el componente Carousel
     HeaderComponent,
+    RestaurantesLogoComponent,
     RestaurantesComponent,
   },
 };

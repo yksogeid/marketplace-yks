@@ -1,10 +1,9 @@
 <template>
   <section>
-    <div class="containerr-fluid my-4">
+    <div class="container-fluid my-4">
+      <h3 class="section-title">!Los mas elegidos¡</h3>
       <!-- Carrusel -->
       <div id="restaurantCarousel" class="carousel slide" data-bs-ride="carousel">
-        <h6 class="section-title ms-1">Los mejores restaurantes cerca de ti.</h6>
-
         <div class="carousel-inner">
           <!-- Diapositivas dinámicas -->
           <div
@@ -15,20 +14,18 @@
           >
             <div class="d-flex flex-wrap justify-content-center">
               <div 
-                class="card-containerr position-relative m-2" 
+                class="card-container position-relative m-2" 
                 style="width: 300px;" 
                 v-for="restaurant in group" 
                 :key="restaurant.id"
               >
-                <!-- Imagen arriba -->
-                <div class="image-containerrr">
-                  <img :src="restaurant.image" class="card-img-top" alt="Restaurant Image">
+                <div class="image-container">
+                  <img :src="restaurant.image" class="rounded-circle" alt="Restaurant Image">
                 </div>
-                <!-- Información abajo -->
-                <div class="card-body">
-                  <h5 class="card-title">{{ restaurant.name }}</h5>
-                  <p class="card-text">{{ restaurant.description }}</p>
-                  <a :href="restaurant.url" class="btn btn-light mt-2" target="_blank">Ver menu</a>
+                <div class="info-overlay">
+                  <h5 class="text-white">{{ restaurant.name }}</h5>
+                  <p class="text-white">{{ restaurant.description }}</p>
+                  <a :href="restaurant.url" class="btn btn-light mt-2" target="_blank">Ver más</a>
                 </div>
               </div>
             </div>
@@ -65,6 +62,9 @@ import logoFRIS from '../assets/imgs/logo-fris.png'; // Importar imagen
 import logoJVZ from '../assets/imgs/logo-jvz.png'; // Importar imagen
 import logoMTO from '../assets/imgs/logo-mto.png'; // Importar imagen
 
+
+
+
 export default {
   data() {
     return {
@@ -73,7 +73,7 @@ export default {
         { id: 2, name: "La Cocina de Juan", description: "Especialidades en mariscos frescos y platillos típicos, ideal para un almuerzo relajado.", image: logoKFC, url: "#" },
         { id: 3, name: "Sabor a México", description: "Auténtica cocina mexicana en un ambiente cálido, con platillos que te harán sentir en casa.", image: logoFRIS, url: "#" },
         { id: 4, name: "La Parrilla del Valle", description: "Cortes de carne a la parrilla y una amplia selección de vinos nacionales e internacionales.", image: logoJVZ, url: "#" },
-        { id: 5, name: "Café Central", description: "Café gourmet con una selección de pasteles y bocadillos ideales para un buen desayuno o merienda.", image: logoMTO, url: "#" },
+        { id: 5, name: "Café Central", description: "Café gourmet con una selección de pasteles y bocadillos ideales para un buen desayuno o merienda.", image:logoMTO, url: "#" },
         { id: 6, name: "Mariscos El Pescador", description: "Deliciosos mariscos frescos y platillos del mar, con una vista espectacular al océano.", image: "https://via.placeholder.com/300x300?text=Mariscos+El+Pescador", url: "#" },
       ],
     };
@@ -94,7 +94,7 @@ export default {
       if (width < 576) return 1; // Dispositivo móvil (1 tarjeta por fila)
       if (width < 768) return 2; // Tablets (2 tarjetas por fila)
       if (width < 992) return 3; // Pantallas medianas (3 tarjetas por fila)
-      return 5; // Pantallas grandes (5 tarjetas por fila)
+      return 5; // Pantallas grandes (4 tarjetas por fila)
     },
   },
   mounted() {
@@ -105,42 +105,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.card-containerr {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.card-containerr:hover {
-  transform: translateY(-5px);
-}
-
-.image-containerr img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 15px;
-  text-align: center;
-}
-
-.card-body h5 {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.card-body p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.card-body .btn {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-</style>
